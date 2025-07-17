@@ -11,6 +11,7 @@ console.log(null > 0);
 console.log(null == 0);
 console.log(null >= 0);
 
+// The reason is that an equality check == and comparisons > < >= 
 
 
 
