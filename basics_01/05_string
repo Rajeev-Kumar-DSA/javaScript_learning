@@ -26,7 +26,8 @@ const newString2 = gameName.slice(-8, 4)  // count from last index, when kept -v
 console.log(newString2);
 
 
-
+const url = "https://rajeev.com/raj%20astraRide"
+console.log(url.replace('%20', '-'))
 
 
 
