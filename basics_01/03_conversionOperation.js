@@ -30,7 +30,7 @@ console.log(valueInNumber4);
 /*
 --- when convert in Number -----
 "33" =>  33
-"33abc" => Nan
+"33abc" => Nan.  (not a number)
 true => 1
 false => 0
 
@@ -53,23 +53,23 @@ let negVal = -value
 console.log(negVal);
 
 console.log(2*2);
-console.log(2**3);
+console.log(2**3); // power of 2^3
 console.log(2/3);
-console.log(2%3);
+console.log(2%3);  // get the reminder value
 
 let str1 = "Hello"
 let str2 = " !Bro"
 let str3 = str1 + str2
 
 console.log(str3);
-console.log("1" + 2);
-console.log(1 + "2");
-console.log("1" + 2 + 2);
-console.log(1 + 2 + "2");
+console.log("1" + 2);  //12
+console.log(1 + "2");   // 12
+console.log("1" + 2 + 2);  //122 (convert in string)
+console.log(1 + 2 + "2");  // 32  (https://tc39.es/ecma262/#sec-fundamental-objects)  (1:23 -> go to another lecture understand the fundametal)
 
 console.log(true);
-console.log(+true);
-// console.log(true +);  // wrong
+console.log(+true);  //1
+// console.log(true +);  // wrong - Unexcepted behaviour
 
 
 
@@ -77,6 +77,7 @@ console.log(+true);
 
 
 // Increment + pre and post -> mdn
+// prefix and postfix -> https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Increment
 
 
 
