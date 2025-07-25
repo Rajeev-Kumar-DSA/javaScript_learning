@@ -1,0 +1,33 @@
+const name = "rajeev"
+const count = 30
+
+// console.log(name + count + "value");
+
+// string interpolation syntax : Use backticks for template literals
+console.log(`Hello my name is ${name} and total count is ${count}`);
+
+
+// using the object
+const gameName = new String("Rajeev Kumar") // 
+
+console.log(gameName);
+console.log(gameName[0]);
+console.log(gameName.__proto__);
+
+console.log(gameName.length);
+console.log(gameName.toUpperCase());
+console.log(gameName.charAt(3));
+console.log(gameName.indexOf('v'));
+
+const newString = gameName.substring(0, 4)   // here -ve value not acceptable, if will take then automatically will start from 0
+console.log(newString);
+
+const newString2 = gameName.slice(-8, 4)  // count from last index, when kept -ve
+console.log(newString2);
+
+
+
+
+
+
+
