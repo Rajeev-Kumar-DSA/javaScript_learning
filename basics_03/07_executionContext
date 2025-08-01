@@ -1,0 +1,148 @@
+Javascript is single thread - 
+
+1. Global Execution Context
+2. Function Execution Context
+3. Eval Execution Context
+
+Memory Creation Phase (MCP) - 
+Execution Phase 
+
+
+Q. What is an Execution Context?
+An execution context is the environment where JavaScript code runs. Every time code is run, 
+JavaScript creates a context in which:
+- variables are stored
+- functions are accessible
+- and code is executed
+
+
+ 1. Global Execution Context (GEC)
+🔹 When is it created?
+      Created when JavaScript first starts executing your code (top level).
+
+🔹 What it does:
+Creates a global object:
+  - window in browsers
+  - global in Node.js
+Sets this to that global object
+Stores all global variables and functions
+
+var name = "Rajeev";
+function sayHi() {
+  console.log("Hi");
+}
+
+All of this is stored inside the GEC.
+
+
+2. Function Execution Context (FEC)
+🔹 When is it created?
+Every time a function is called, a new execution context is created specifically for that function.
+Each function call has its own context, with:
+    - its own arguments
+    - local variables
+    - inner functions
+
+✅ Each function context is pushed onto the call stack.
+function greet(name) {
+  var message = "Hello " + name;
+  console.log(message);
+}
+greet("Rajeev");
+
+➡️ When greet("Rajeev") is called:
+A new FEC is created
+Local memory stores name = "Rajeev", message = "Hello Rajeev"
+
+
+3. Eval Execution Context (Rare)
+⚠️ Eval is rarely used and discouraged in production.
+🔹 What is it?
+The eval() function runs code passed as a string — and creates a new execution context to evaluate that code.
+
+eval("var x = 10;");
+console.log(x); // 10
+
+It’s dangerous because:
+    - Executes dynamic code (security risk)
+    - Slower (engine optimization disabled)
+    - Makes debugging hard
+
+
+🔁 Execution Context Lifecycle
+Every Execution Context (Global or Function) goes through 2 phases:
+
+✅ Phase 1: Memory Creation Phase (a.k.a. Variable Environment or "Hoisting phase")
+🔹 What happens:
+  - Creates a new “scope” / memory space
+  - Reserves space for:
+    -> Variables → initialized to undefined
+    -> Functions → fully hoisted (entire code stored)
+  - Creates this, arguments (if in function)
+
+console.log(a);       // undefined
+console.log(foo());   // “Hello”
+var a = 10;
+function foo() {
+  return "Hello";
+}
+
+Memory phase result:
+a → undefined  
+foo → function reference
+
+
+ Phase 2: Execution Phase
+🔹 What happens:
+    - Code is executed line-by-line
+    - Variable values are assigned
+    - Function calls create new FECs
+Now values like a = 10 are assigned.
+
+
+=>  Visualization: Code Execution Step-by-Step
+var a = 1;
+function square(x) {
+  return x * x;
+}
+
+var result = square(a);
+console.log(result);
+
+Step-by-step:
+1. GEC Memory Phase:
+a → undefined
+square → function definition
+result → undefined
+
+2. GEC Execution Phase:
+  - a = 1
+  - Call square(1) → creates FEC
+      - Memory: x → 1
+      - Execution: return 1 * 1 = 1
+  - result = 1
+  - console.log(1) prints → 1
+
+
+Interview Tips
+| Question                              | Expected Understanding                                                                |
+| ------------------------------------- | ------------------------------------------------------------------------------------- |
+| What is hoisting?                     | Variables are set to `undefined`; functions are fully hoisted during the memory phase |
+| What is execution context?            | Environment where code runs (Global, Function, Eval)                                  |
+| What is call stack?                   | Stack-like structure for managing execution contexts                                  |
+| What happens when function is called? | New FEC is pushed, local memory is created, executed, then popped                     |
+
+
+
+Summary Table
+| Term                       | Description                                  |
+| -------------------------- | -------------------------------------------- |
+| Global Execution Context   | Top-level code environment                   |
+| Function Execution Context | Created for each function call               |
+| Eval Execution Context     | Created for `eval()` (rare and discouraged)  |
+| Memory Creation Phase      | Variables → `undefined`, Functions → Hoisted |
+| Execution Phase            | Variables assigned, code executed            |
+| Call Stack                 | Manages context execution order (LIFO)       |
+
+
+
