@@ -14,7 +14,10 @@ number => 2 to power 53
 bigint
 string => ""
 boolean => true/false
-null => its a standalone value -> empty value ka reperesentation hai, (this is type of object)
+null => its a standalone value -> empty value ka reperesentation hai, (this is type of object) 
+        (best example of uses - suppose we are requesting to give the temparture value, but same time have some server issue came, 
+        if we will give the return as 0, its a temparture value, but unfortunately we didnt recevie the any response because of 
+        server issue, in this time instead of 0 use the null -> we recive the empty value )
 undefined => variable is decalre but value not assigned (for this type is undefined)
 symbol => uniqueness defined
 

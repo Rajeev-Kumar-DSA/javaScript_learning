@@ -12,9 +12,9 @@ console.log(accountId);
 
 /*
 let and var -> we can change 
-let -> 
+let -> best choice to use the code, avoid the value change 
 var -> perfer not to use var keyword, because of issue in block scope and functional scope
-        (means for and if condition block)
+        (means for and if condition block - value change)
 */
 accountEmail = "check@google.com"
 accountPasword = "213243"
